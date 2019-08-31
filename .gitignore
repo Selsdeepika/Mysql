@@ -1,29 +1,31 @@
-.rvmrc
-.gradle/
-.idea/
-.DS_Store
-private/
+HELP.md
 target/
-build/
-data/
-gwt-unitCache/
-widgetsets/
-.project
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**
+!**/src/test/**
+
+### STS ###
+.apt_generated
 .classpath
+.factorypath
+.project
 .settings
 .springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
 *.iml
 *.ipr
-*.iws
-*.ids
-*.bak
-*.log*
-.*.sw*
-/bin/
-gradle.properties
-/.cache-main
-/.cache-tests
-.tmpBin/
-*.mdmp
-/out
-*.idea
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+
+### VS Code ###
+.vscode/
