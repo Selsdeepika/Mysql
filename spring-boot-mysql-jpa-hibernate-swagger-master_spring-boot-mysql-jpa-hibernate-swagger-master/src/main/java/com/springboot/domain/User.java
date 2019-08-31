@@ -14,48 +14,48 @@ import javax.validation.constraints.NotNull;
 @Table(name = "users")
 public class User {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
 
-	private String email;
+    private String email;
 
-	private String name;
+    private String name;
 
-	public User() {
-	}
+    public User() {
+    }
 
-	public User(long id) {
-		this.id = id;
-	}
+    public User(long id) {
+        this.id = id;
+    }
 
-	public User(String email, String name) {
-		this.email = email;
-		this.name = name;
-	}
+    public User(String email, String name) {
+        this.email = email;
+        this.name = name;
+    }
 
-	public long getId() {
-		return id;
-	}
+    public long getId() {
+        return id;
+    }
 
-	public void setId(long value) {
-		this.id = value;
-	}
+    public void setId(long value) {
+        this.id = value;
+    }
 
-	public String getEmail() {
-		return email;
-	}
+    public String getEmail() {
+        return email;
+    }
 
-	public void setEmail(String value) {
-		this.email = value;
-	}
+    public void setEmail(String value) {
+        this.email = value;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public void setName(String value) {
-		this.name = value;
-	}
+    public void setName(String value) {
+        this.name = value;
+    }
 
 } // class User
