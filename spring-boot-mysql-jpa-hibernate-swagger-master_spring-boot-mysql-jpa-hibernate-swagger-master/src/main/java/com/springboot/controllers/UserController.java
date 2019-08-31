@@ -1,16 +1,17 @@
 package com.springboot.controllers;
 
-import com.springboot.domain.User;
-import com.springboot.dao.UserDao;
+import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.springboot.domain.User;
+import com.springboot.repository.UserRepository;
 
 /**
  * Class UserController
@@ -20,8 +21,12 @@ public class UserController {
 
     private static final Logger logger = LoggerFactory.getLogger(UserController.class);
     // Wire the UserDao used inside this controller.
+    /*
+     * @Autowired private UserDao userDao;
+     */
+
     @Autowired
-    private UserDao userDao;
+    private UserRepository userRepository;
 
     /**
      * Create a new user with an auto-generated id and email and name as passed
@@ -37,7 +42,8 @@ public class UserController {
             logger.debug("loggert yrsy");
             logger.error("loggert yrsy");
             System.out.println("this is a test");
-            userDao.create(user);
+            // userDao.create(user);
+            userRepository.save(user);
         } catch (Exception ex) {
             return "Error creating the user: " + ex.toString();
         }
@@ -52,7 +58,8 @@ public class UserController {
     public String delete(long id) {
         try {
             User user = new User(id);
-            userDao.delete(user);
+            // userDao.delete(user);
+            userRepository.delete(user);
         } catch (Exception ex) {
             return "Error deleting the user: " + ex.toString();
         }
@@ -64,15 +71,17 @@ public class UserController {
      */
     @RequestMapping(value = "/get-by-email", method = RequestMethod.GET, params = { "email" })
     @ResponseBody
-    public String getByEmail(String email) {
-        String userId;
+    public List<User> getByEmail(String email) {
+        List<User> listOfUser = null;
         try {
-            User user = userDao.getByEmail(email);
-            userId = String.valueOf(user.getId());
+            // User user = userDao.getByEmail(email);
+            listOfUser = userRepository.findByEmail(email);
+
+            // userId = String.valueOf(user.getId());
         } catch (Exception ex) {
-            return "User not found: " + ex.toString();
+            return null;
         }
-        return "The user id is: " + userId;
+        return listOfUser;
     }
 
     /**
@@ -82,10 +91,12 @@ public class UserController {
     @ResponseBody
     public String updateName(long id, String email, String name) {
         try {
-            User user = userDao.getById(id);
+            // User user = userDao.getById(id);
+            User user = userRepository.findById(id);
             user.setEmail(email);
             user.setName(name);
-            userDao.update(user);
+            // userDao.update(user);
+            userRepository.save(user);
         } catch (Exception ex) {
             return "Error updating the user: " + ex.toString();
         }
