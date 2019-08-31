@@ -1,16 +1,29 @@
-# Eclipse
-.classpath
-.project
-.settings/
- 
-# Intellij
+.rvmrc
+.gradle/
 .idea/
-*.iml
-*.iws
- 
-# Mac
 .DS_Store
- 
-# Maven
-log/
+private/
 target/
+build/
+data/
+gwt-unitCache/
+widgetsets/
+.project
+.classpath
+.settings
+.springBeans
+*.iml
+*.ipr
+*.iws
+*.ids
+*.bak
+*.log*
+.*.sw*
+/bin/
+gradle.properties
+/.cache-main
+/.cache-tests
+.tmpBin/
+*.mdmp
+/out
+*.idea
