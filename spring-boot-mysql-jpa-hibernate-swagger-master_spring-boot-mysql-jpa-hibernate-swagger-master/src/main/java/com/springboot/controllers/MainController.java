@@ -9,10 +9,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping(method = RequestMethod.GET)
 public class MainController {
 
-  @RequestMapping("/")
-  @ResponseBody
-  public String index() {
-    return "JPA + Hibernate + MySQL + Swagger with Spring Boot App started!";
-  }
+	@RequestMapping("/")
+	@ResponseBody
+	public String index() {
+		return "JPA + Hibernate + MySQL + Swagger with Spring Boot App started!";
+	}
 
 }
