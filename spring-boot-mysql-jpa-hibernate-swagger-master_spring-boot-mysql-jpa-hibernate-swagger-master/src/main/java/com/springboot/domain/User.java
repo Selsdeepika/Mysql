@@ -4,14 +4,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 
 /**
  * Represents an User for this web application.
  */
 @Entity
-@Table(name = "users")
+// @Table(name = "users")
 public class User {
 
     @Id
