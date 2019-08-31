@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Built-By: lenovo
+Build-Jdk: 12.0.2
+Implementation-Title: spring-boot-mysql-jpa-hibernate-swagger
+Implementation-Version: 1.0.0-SNAPSHOT
+Implementation-Vendor-Id: com.springboot
+Implementation-Vendor: Pivotal Software, Inc.
+Implementation-URL: http://projects.spring.io/spring-boot/spring-boot-my
+ sql-jpa-hibernate-swagger/
+Main-Class: com.springboot.Application
+Created-By: Maven Integration for Eclipse
+
