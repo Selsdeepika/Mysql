@@ -5,27 +5,31 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Component;
-
-
-
+import lombok.AllArgsConstructor;
 import lombok.Data;
-import java.util.Date;
+import lombok.NoArgsConstructor;
 
+/**
+ * Represents an User for this web application.
+ */
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
 public class User {
-	
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
+    private String email;
+    private String name;
 
-	    
-		private long id;
-	    private String email;
-	    private String name;
-
-	  
-
-
-  
+    public User(long id) {
+        this.id = id;
+    }
+    public User(String email, String name) {
+        this.email = email;
+        this.name = name;
+    }
 
 } // class User

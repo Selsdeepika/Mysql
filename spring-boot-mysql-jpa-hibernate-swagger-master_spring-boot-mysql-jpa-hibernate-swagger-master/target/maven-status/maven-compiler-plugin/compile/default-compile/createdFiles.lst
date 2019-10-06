@@ -1,6 +1,0 @@
-com\springboot\dao\UserDao.class
-com\springboot\domain\User.class
-com\springboot\Application.class
-com\springboot\config\SwaggerConfig.class
-com\springboot\controllers\MainController.class
-com\springboot\controllers\UserController.class
