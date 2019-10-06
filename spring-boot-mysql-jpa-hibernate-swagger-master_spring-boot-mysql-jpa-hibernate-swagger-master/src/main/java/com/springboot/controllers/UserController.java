@@ -5,18 +5,23 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.springboot.domain.User;
 import com.springboot.repository.UserRepository;
 
+import lombok.extern.slf4j.Slf4j;
+
 /**
  * Class UserController
  */
-@Controller
+@Slf4j
+@RestController
 public class UserController {
 
     private static final Logger logger = LoggerFactory.getLogger(UserController.class);
@@ -74,6 +79,22 @@ public class UserController {
         }
         return listOfUser;
     }
+    
+    @RequestMapping(value = "/get-all-mail", method = RequestMethod.GET)
+    @ResponseBody
+    public List<User> getAllEmail() {
+        List<User> listOfUser = null;
+        try {
+            // User user = userDao.getByEmail(email);
+            listOfUser = userRepository.findAll();
+
+            // userId = String.valueOf(user.getId());
+        } catch (Exception ex) {
+            return null;
+        }
+        return listOfUser;
+    }
+
 
    
     @RequestMapping(value = "/update", method = RequestMethod.PUT, params = { "id", "email", "name" })
@@ -90,6 +111,12 @@ public class UserController {
             return "Error updating the user: " + ex.toString();
         }
         return "User succesfully updated!";
+    }
+    
+    @GetMapping("/get-user-by-id/{id}")
+    public User getUserById(@PathVariable long id) {
+        log.debug("I am in DB Service for getUserByID");
+        return userRepository.findById(id);
     }
 
 }
